@@ -17,3 +17,16 @@
 - 깃헙에 올리기
 
 model / epoch / resolution / dataset
+
+- 전반적으로 크기 / 해상도가 작은 모델들 + Augmentation을 이용한 과적합이 효과가 좋아보인다
+    - Valid F1 1을 찍고 (Train Data는 잘 예측하고)
+    - Train F1이 높은 모델들 (Augmentation에 잘 대응하는 모델들)
+
+- ConNext
+- Swin S
+
+- 실험해볼 것
+    - 더 많은 모델들
+    - Ensemble Resolution
+        - 단일한 Res vs 여러 Res
+    - Minority 들로만 Augmentation Train / 전체 Train Set으로 Validation
