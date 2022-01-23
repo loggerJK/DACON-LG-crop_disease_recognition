@@ -30,3 +30,8 @@ model / epoch / resolution / dataset
     - Ensemble Resolution
         - 단일한 Res vs 여러 Res
     - Minority 들로만 Augmentation Train / 전체 Train Set으로 Validation
+    - 모든 클래스 개수를 동일하게 맞춰주기
+        - 기존 모델을 더 Training
+        - 처음부터 새로운 모델 -> 앙상블에 추가
+
+- CSV를 활용한 LSTM 만들기
