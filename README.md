@@ -1,6 +1,6 @@
 # 농업 환경 변화에 따른 작물 병해 진단 AI 경진대회
 
-# Private LB 21위 0.95139
+# Private LB 21위 (Score : 0.95139)
 - 주최 : LG AI Research
 - 주관 : 데이콘
 - 목적 : "작물 환경 데이터"와 "작물 병해 이미지"를 이용해 "작물의 종류", "병해의 종류", "병해의 진행 정도"를 진단하는 AI 모델 개발
@@ -67,8 +67,11 @@ data_transforms = {
     - 그러나 생각보다 유효한 효과는 나타나지 않음. 이후 Data의 개수를 늘리는 Oversampling보다는 강하고 다양한 Augmentation을 통해서 문제를 극복하려는 전략을 취함.
 
 # 모델 테스트
-- 경험적으로, Train 데이터에 과적합될수록 오히려 성능이 LB 스코어가 잘나오는 것을 확인하고, 대부분의 모델을 과적합시켜서 테스트함
-- TTA 모델의 경우, 너무 많은 Augmentation은 오히려 성능 하락을 유발. $0^0, 90^0, 180^0, 270^0$ 네가지의 기본 회전만으로 TTA Augmentation을 적용함.
+- 경험적으로, Train 데이터에 과적합될수록 오히려 성능이 LB 스코어가 잘나오는 것을 확인하고, 대부분의 모델을 (Valid F1이 1이 될때까지) 과적합시켜서 테스트함. 
+- TTA 모델의 경우, 너무 많은 Augmentation은 오히려 성능 하락을 유발. 0<sup>0</sup>, 90<sup>0</sup>, 180<sup>0</sup>, 270<sup>0</sup> 네가지의 기본 회전만으로 TTA Augmentation을 적용함.
+- 전반적으로 CNN 모델보다는 Transformer 계열의 모델들이, 이미지 크기(Resolution)가 큰 모델들보다는 작은 모델들이 좋은 성능을 보여줌.
+- CutMix는 성능 향상에 매우 좋은 Augmentation. CutMix를 적용한 이후 대부분의 모델들이 이전보다 높은 성능을 보여줌.
+- 다음 표는 Valid F1 기준으로 모델들을 내림차순 정렬한 것이다.
 
 | Model | CutMix | TTA | Resolution | Param | Epoch | Train F1 | Valid F1 | Public LB | Note |
 |---|---|---|---|---|---|---|---|---|---|
