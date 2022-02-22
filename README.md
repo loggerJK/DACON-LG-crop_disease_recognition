@@ -95,7 +95,7 @@ data_transforms = {
 | ENSEMBLE   #12 (11 TTA) | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.948370833 | finecutmix_TTA_effnetv2m_swin_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
 | ENSEMBLE #8 (9) |  | Y | ENSEMBLE |  | ENSEMBLE |  |  | 0.948030037 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224_TTA |
 | ENSEMBLE   #7 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.947822635 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
-| ENSEMBLE #6 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.947634928 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_[B]swinS224_convnextS224 |
+| ENSEMBLE #6 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.947634928 | effnetv2m(3)_swin(3)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
 | ENSEMBLE   #3 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946883266 | effnetv2m(3)_swin(3)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
 | ENSEMBLE #11 | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946642688 | finecutmix_effnetv2m_swin_deit_b4ns512(160)_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
 | ENSEMBLE   #4 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946176973 | effnetv2m(3)_swin(3)_deit_b4ns512_coatmini224_beit224in22k_cait224_[B]swinS224_convnextS224 |
