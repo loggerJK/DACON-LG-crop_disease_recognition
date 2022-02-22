@@ -7,8 +7,8 @@
 - [대회 링크](https://dacon.io/competitions/official/235870/overview/description)
 
 # Dev Environment
-- OS : Windows 11 + WSL2 (Ubuntu 20.04 LTS)
-- GPU : Colab Pro or Kaggle
+- OS : Windows 11 & WSL2 (Ubuntu 20.04 LTS)
+- GPU : P100 (Colab Pro, Kaggle)
 
 # Library
 - wandb 
@@ -72,6 +72,7 @@ data_transforms = {
 }
 ```
 - Cutmix
+- Ensemble (Soft Voting)
 
 ## 시도했으나 채택되지 못한 기법들
 - TTA
@@ -124,4 +125,11 @@ data_transforms = {
 | tf_efficientnetv2_m | N | N | 384 | 52M | 62 | 0.9926 | 1 | 0.925318381 | tf_efficientnetv2_m |
 | effnet_b6_ns | N | N | 512 | 　 | 83 | 0.994 | 1 | 0.908087196 | tf_efficientnet_b6_ns |
 
-
+# 개선해야 할 점 | 시도해볼만 한 것들 (From 1st ~ 10th Solution)
+- Tabular 데이터의 활용
+    - LSTM, CatBoost 등
+- bbox등 추가 데이터를 활용한 Augmentation도 가능했다. 
+    - ex) CutMix할 때 두 이미지의 bbox를 무조건 포함하도록 하기.
+- Cross Entropy Loss를 사용했는데, 이러한 Imbalanced Data일 경우 Focal Loss를 시도해볼 수 있겠다.
+- 추가적인 Regularization
+    - Label Smoothing
