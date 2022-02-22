@@ -1,6 +1,6 @@
-# 농업 환경 변화에 따른 작물 병해 진단 AI 경진대회
+# ☘️농업 환경 변화에 따른 작물 병해 진단 AI 경진대회
 
-# Private LB 21위 (Score : 0.95139)
+# 🔥Private LB 21위 (Score : 0.95139)
 - 주최 : LG AI Research
 - 주관 : 데이콘
 - 목적 : "작물 환경 데이터"와 "작물 병해 이미지"를 이용해 "작물의 종류", "병해의 종류", "병해의 진행 정도"를 진단하는 AI 모델 개발
@@ -19,6 +19,22 @@
 - einops 
 - joblib 
 - icecream
+
+# 폴더 구조
+```
+.
+├── Balanced Dataset : Data Imbalance 문제를 Oversampling으로 접근
+├── CutMix : 기존 모델들 (Original Dataset)에 CutMix를 적용해 Finetuing한 모델들
+├── No Aug : Augmentation 성능을 비교하기 위한 대조군
+├── Original Dataset
+├── SUBMIT : submission file들을 분석
+├── test : SAMPLE TEST FOLDER
+│   ├── 10000
+│   └── 10001
+└── train : SAMPLE TRAIN FOLDER
+    ├── 10000
+    └── 10001
+```
 
 # 접근
 - 기본전략 : 다양한 이미지 모델 / 이미지 사이즈를 실험해보고, 최대한 성능을 끌어올린 단일 모델들을 추려 Ensemble하기
