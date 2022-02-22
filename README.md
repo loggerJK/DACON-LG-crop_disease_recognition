@@ -4,7 +4,7 @@
 - 주최 : LG AI Research
 - 주관 : 데이콘
 - 목적 : "작물 환경 데이터"와 "작물 병해 이미지"를 이용해 "작물의 종류", "병해의 종류", "병해의 진행 정도"를 진단하는 AI 모델 개발
-- [대회 링크] (https://dacon.io/competitions/official/235870/overview/description)
+- [대회 링크](https://dacon.io/competitions/official/235870/overview/description)
 
 # Dev Environment
 - OS : Windows 11 + WSL2 (Ubuntu 20.04 LTS)
@@ -70,39 +70,39 @@ data_transforms = {
 - 경험적으로, Train 데이터에 과적합될수록 오히려 성능이 LB 스코어가 잘나오는 것을 확인하고, 대부분의 모델을 과적합시켜서 테스트함
 - TTA 모델의 경우, 너무 많은 Augmentation은 오히려 성능 하락을 유발. $0^0, 90^0, 180^0, 270^0$ 네가지의 기본 회전만으로 TTA Augmentation을 적용함.
 
-| Model | CutMix | TTA | Resolution | Param | Epoch | Train F1 | Valid F1 | Public LB | Note |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ENSEMBLE #13 | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.949678674 | original_finecutmix_effnetv2m_swin_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE   #12 (11 TTA) | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.948370833 | finecutmix_TTA_effnetv2m_swin_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE #8 (9) |  | Y | ENSEMBLE |  | ENSEMBLE |  |  | 0.948030037 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224_TTA |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE   #7 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.947822635 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE #6 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.947634928 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_[B]swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE   #3 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946883266 | effnetv2m(3)_swin(3)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE #11 | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946642688 | finecutmix_effnetv2m_swin_deit_b4ns512(160)_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE   #4 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946176973 | effnetv2m(3)_swin(3)_deit_b4ns512_coatmini224_beit224in22k_cait224_[B]swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE #9 (8) | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946096307 | effnetv2m_swin_deit_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| DeiT | Y | N | 384 | 85M | 201 | 0.8811 | 1 | 0.945885493 | w |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE #5 (5) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.94480485 | coatmini224_beit224in22k_cait224_[B]swinS224_convnextS224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE   #2 (6) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.944121324 | effnetv2m(3)_swinB(3)_deit_b4ns512_coatmini224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| cait_s24_224 | Y | N | 224 | 46M | 40 | 0.7338 | 1 | 0.942474188 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Swin-B | Y | N | 384 | 86M | 125 | 0.8078 | 1 | 0.941872109 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Swin-S | Y | N | 224 | 48M | 56 | 0.8685 | 1 | 0.941198225 | swin_small_patch4_window7_224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| BeiT   22k | Y | N | 224 | 85M | 374 | 0.8792 | 1 | 0.941053769 | beit_base_patch16_224_in22k |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ENSEMBLE #1 (4) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.939868495 | effnetv2m(3)_swinB(3)_deit_b4ns(50) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| coat_mini | Y | N | 224 | 16M | 368 | 0.7699 | 1 | 0.937212932 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| BeiT 22k | N | Y | 224 | 85M | 55 |  | 1 | 0.935879431 | beit_base_patch16_224_in22k |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| tf_efficientnetv2_m | Y | N | 384 | 52M | 62 | 0.7111 | 1 | 0.93544119 | tf_efficientnetv2_m |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| BeiT 22k | N | N | 224 | 85M | 55 | 0.9918 | 1 | 0.935041547 | beit_base_patch16_224_in22k |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Swin-S | N | N | 224 | 48M | 56 | 0.9968 | 1 | 0.934686009 | swin_small_patch4_window7_224 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| cait_s24_224 | N | N | 224 | 46M | 40 | 0.9913 | 1 | 0.932752062 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ConvNext-S | N | N | 224 | 49M | 73 | 0.9967 | 1 | 0.932625441 | convnext_small |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| Swin-B | N | N | 384 | 86M | 57 | 0.9959 | 1 | 0.932183115 | swin_base_patch4_window12_384 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| coat_mini | N | N | 224 | 16M | 45 | 0.9968 | 1 | 0.931627762 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ConvNext-S | Y | N | 224 | 49M | 405 |  | 1 | 0.931021272 | convnext_small |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| DeiT | N | N | 384 | 85M | 13   (finetune) | 0.9878 | 0.9952 | 0.927680222 | deit_base_distilled_patch16_384 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| effnet_b4_ns | N | N | 512 | 17M | 71 | 0.9893 | 1 | 0.927216641 | tf_efficientnet_b4_ns | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 |
-| effnet_b4_ns | N | N | 384 | 17M | 82 | 0.9896 | 1 | 0.925359356 | tf_efficientnet_b4_ns |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| tf_efficientnetv2_m | N | N | 384 | 52M | 62 | 0.9926 | 1 | 0.925318381 | tf_efficientnetv2_m |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| effnet_b6_ns | N | N | 512 | 　 | 83 | 0.994 | 1 | 0.908087196 | tf_efficientnet_b6_ns |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Model | CutMix | TTA | Resolution | Param | Epoch | Train F1 | Valid F1 | Public LB | Note |
+|---|---|---|---|---|---|---|---|---|---|
+| ENSEMBLE #13 | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.949678674 | original_finecutmix_effnetv2m_swin_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
+| ENSEMBLE   #12 (11 TTA) | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.948370833 | finecutmix_TTA_effnetv2m_swin_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
+| ENSEMBLE #8 (9) |  | Y | ENSEMBLE |  | ENSEMBLE |  |  | 0.948030037 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224_TTA |
+| ENSEMBLE   #7 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.947822635 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
+| ENSEMBLE #6 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.947634928 | effnetv2m(62)_swin(57)_deit_b4ns512_coatmini224_beit224in22k_cait224_[B]swinS224_convnextS224 |
+| ENSEMBLE   #3 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946883266 | effnetv2m(3)_swin(3)_deit_b4ns512_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
+| ENSEMBLE #11 | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946642688 | finecutmix_effnetv2m_swin_deit_b4ns512(160)_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
+| ENSEMBLE   #4 (9) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946176973 | effnetv2m(3)_swin(3)_deit_b4ns512_coatmini224_beit224in22k_cait224_[B]swinS224_convnextS224 |
+| ENSEMBLE #9 (8) | Y | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.946096307 | effnetv2m_swin_deit_coatmini224_beit224in22k_cait224_swinS224_convnextS224 |
+| DeiT | Y | N | 384 | 85M | 201 | 0.8811 | 1 | 0.945885493 | w |
+| ENSEMBLE #5 (5) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.94480485 | coatmini224_beit224in22k_cait224_[B]swinS224_convnextS224 |
+| ENSEMBLE   #2 (6) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.944121324 | effnetv2m(3)_swinB(3)_deit_b4ns512_coatmini224 |
+| cait_s24_224 | Y | N | 224 | 46M | 40 | 0.7338 | 1 | 0.942474188 |  |
+| Swin-B | Y | N | 384 | 86M | 125 | 0.8078 | 1 | 0.941872109 |  |
+| Swin-S | Y | N | 224 | 48M | 56 | 0.8685 | 1 | 0.941198225 | swin_small_patch4_window7_224 |
+| BeiT   22k | Y | N | 224 | 85M | 374 | 0.8792 | 1 | 0.941053769 | beit_base_patch16_224_in22k |
+| ENSEMBLE #1 (4) |  | N | ENSEMBLE |  | ENSEMBLE |  |  | 0.939868495 | effnetv2m(3)_swinB(3)_deit_b4ns(50) |
+| coat_mini | Y | N | 224 | 16M | 368 | 0.7699 | 1 | 0.937212932 |  |
+| BeiT 22k | N | Y | 224 | 85M | 55 |  | 1 | 0.935879431 | beit_base_patch16_224_in22k |
+| tf_efficientnetv2_m | Y | N | 384 | 52M | 62 | 0.7111 | 1 | 0.93544119 | tf_efficientnetv2_m |
+| BeiT 22k | N | N | 224 | 85M | 55 | 0.9918 | 1 | 0.935041547 | beit_base_patch16_224_in22k |
+| Swin-S | N | N | 224 | 48M | 56 | 0.9968 | 1 | 0.934686009 | swin_small_patch4_window7_224 |
+| cait_s24_224 | N | N | 224 | 46M | 40 | 0.9913 | 1 | 0.932752062 |  |
+| ConvNext-S | N | N | 224 | 49M | 73 | 0.9967 | 1 | 0.932625441 | convnext_small |
+| Swin-B | N | N | 384 | 86M | 57 | 0.9959 | 1 | 0.932183115 | swin_base_patch4_window12_384 |
+| coat_mini | N | N | 224 | 16M | 45 | 0.9968 | 1 | 0.931627762 |  |
+| ConvNext-S | Y | N | 224 | 49M | 405 |  | 1 | 0.931021272 | convnext_small |
+| DeiT | N | N | 384 | 85M | 13   (finetune) | 0.9878 | 0.9952 | 0.927680222 | deit_base_distilled_patch16_384 |
+| effnet_b4_ns | N | N | 512 | 17M | 71 | 0.9893 | 1 | 0.927216641 | tf_efficientnet_b4_ns |
+| effnet_b4_ns | N | N | 384 | 17M | 82 | 0.9896 | 1 | 0.925359356 | tf_efficientnet_b4_ns |
+| tf_efficientnetv2_m | N | N | 384 | 52M | 62 | 0.9926 | 1 | 0.925318381 | tf_efficientnetv2_m |
+| effnet_b6_ns | N | N | 512 | 　 | 83 | 0.994 | 1 | 0.908087196 | tf_efficientnet_b6_ns |
 
 
